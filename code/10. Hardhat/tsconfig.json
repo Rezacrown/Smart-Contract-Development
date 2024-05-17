@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "target": "ES2020",         // Set to at least ES2020 for Hardhat
+      "module": "CommonJS",       // This should be CommonJS for typical Hardhat projects
+      "strict": true,             // Enable all strict type-checking options
+      "esModuleInterop": true,    // Enables module interop
+      "outDir": "dist",           // Specify the output directory for compiled files
+      "moduleResolution": "Node", // This should be Node for Node.js projects
+      "forceConsistentCasingInFileNames": true
+    },
+    "include": ["./scripts/**/*", "./test/**/*", "./type-extensions/**/*"],
+    "files": [
+      "./hardhat.config.ts"
+    ]
+  }
+  

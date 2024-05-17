@@ -1,0 +1,30 @@
+Upgrade Solidity Version and Data Location
+------------------------------------------
+In programming, libraries, programming languages, and tools that we use inevitably undergo updates. Similar to how apps or operating systems require periodic updates, our previous project was built using version 0.4.17, and here we will update it to version 0.8.19.
+
+Run command: npm install solc@0.8.19
+This installs the latest version of the Solidity compiler.
+
+In the contract, update the Solidity version to 0.8.19 without the caret symbol to specify the version more precisely.
+Change our constructor function from 'Inbox' to 'constructor' and remove the 'public' visibility specifier because, as of Solidity version 0.7.x, constructors no longer require a visibility specifier.
+
+Add a data location for reference-type or non-primitive parameters; string and array are reference types, while uint is primitive. For our constructor, we use memory and for the function setMessage, we also use memory.
+
+Include an SPDX license identifier, which is a short way to provide a license for our contract. I won't delve too deeply into licenses here, but for now, we'll use the MIT license, which should be placed above the pragma solidity line. The MIT license is a permissive free software license originating from the Massachusetts Institute of Technology (MIT). It allows others to use, copy, modify, merge, publish, distribute, sublicense, and sell copies. You can explore different types of licenses available.
+
+Data Location
+-------------
+Generally, you will encounter three types of data locations: storage, memory, and calldata.
+In constructors, we can only use storage or memory.
+
+We use memory if the parameter is only needed within the scope of that function and is temporary, not stored on the blockchain. It's like using a whiteboard, erased when no longer needed.
+
+Use storage if the parameter's value needs to be saved on the blockchain. This consumes more gas, so it should be used when necessary.
+
+Use calldata if the parameters are only read, not modified or stored on the blockchain. In short, it's like memory but immutable. While memory is mutable (its values can be changed), calldata is generally used when the function is external and is also more gas-efficient.
+
+
+
+
+
+
